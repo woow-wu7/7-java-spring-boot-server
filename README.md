@@ -26,6 +26,8 @@
 - application.properties
   - src/main/resources/application.properties
   - src/main/resources/application.yml
+- 优先级
+  - application.properties > application.yml
 
 pom.xml
 - 父项目的作用：请查看pom.xml文件中的 <parent>
@@ -36,9 +38,16 @@ pom.xml
   - 作用：用来简化开发，主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor
   - 配置：1. 需要下载idea的lonbok插件 2. 需要在pom.xml中安装lombok的maven依赖
   - 使用：详见 HelloBean 
-  - 文章：https://juejin.cn/post/6930627377101979662#heading-9
+  - 文章：
+    - https://juejin.cn/post/6930627377101979662#heading-9
+    - https://juejin.cn/post/6960187616050282533#heading-21
+- devtools
+  - 实现重新构建
+  - 快捷键：command + f9 则可以重新构建，不需要在重新run
+  - 要实现真正的热更新：https://juejin.cn/post/6960187616050282533#heading-25
 
 SpringBoot的一些底层注解
-- @Configuration + @Bean + @Autowired
-- lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString
+- @Configuration + @Bean + @Autowired + @Builder
+- @Import + @Component + @Bean
+- lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString + @Value +  @Builder + @Slf4j
 ```

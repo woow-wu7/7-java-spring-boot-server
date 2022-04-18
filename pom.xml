@@ -58,6 +58,17 @@
             <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- spring-boot-devtools 从新构建 -->
+        <!--实现重新构建，快捷键：command + f9 则可以重新构建，不需要在重新run-->
+        <!-- 要实现热更新还需要设置两个地方，具体见我的博客 -->
+        <!-- 博客地址：https://juejin.cn/post/6929145638898794503 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <!-- 编译 -->
