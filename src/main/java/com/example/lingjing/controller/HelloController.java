@@ -3,6 +3,7 @@ package com.example.lingjing.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// @RestController = @Controller + @ResponseBody
 @RestController
 public class HelloController {
 
@@ -10,6 +11,6 @@ public class HelloController {
     // @GetMapping(path = "/hello")
     @GetMapping("/hello")
     public String getHello() {
-        return "hello word";
+        return "hello word" + "你好";
     }
 }

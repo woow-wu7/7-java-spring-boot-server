@@ -2,7 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- parent 父工程-->
+
+    <!-- parent 父项目 -->
+    <!-- 父项目的作用：做依赖管理，也就是说在父项目中指定了版本号，继承父项目的子项目就不需要写版本号 -->
+    <!-- parent 几乎声明了所有的开发中常用的 ( 依赖的版本号 ) -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,16 +19,28 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>9-lingjing-server</name>
     <description>9-lingjing-server</description>
+
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
+    <!-- 项目的打包类型 -->
+    <!-- pom jar war -->
+    <!-- 默认是打包成jar包，如果不设置这个标签就是打成 jar -->
+    <packaging>jar</packaging>
+
     <dependencies>
+
         <!-- spring-boot-starter-web web相关的starter -->
+        <!-- 这里没写版本好，因为父项目中设置了版本号 -->
+        <!-- start 就是场景启动器，这个场景需要使用的常规依赖都会自动引入 -->
+        <!-- SpringBoot官网所有场景：https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.starters-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <!-- spring-boot-starter-test 测试相关的starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,7 +53,9 @@
     <build>
         <plugins>
 
+            <!-- spring-boot-maven-plugin -->
             <!-- maven插件 -->
+            <!-- 该插件和打包相关，可以在右侧插件栏中使用 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
