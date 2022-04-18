@@ -7,6 +7,7 @@
 - mac上java安装教程
   - java安装配置：https://juejin.cn/post/6927306093970325517/#heading-15
   - maven安装配置：https://juejin.cn/post/6927306093970325517/#heading-16
+  - 注意：如果 maven3.8.5 和 社区版idea 冲突的话，改用 maven3.6.3
 
 打包部署
 - 打包 fat-jar
@@ -30,6 +31,14 @@ pom.xml
 - 父项目的作用：请查看pom.xml文件中的 <parent>
 - 自定义子项目的版本号： 在当前项目里重写配置，比如：<properties><java.version>1.8</java.version></properties>
 
-SpringBoot的一些底层注解
+插件安装
+- lombok
+  - 作用：用来简化开发，主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor
+  - 配置：1. 需要下载idea的lonbok插件 2. 需要在pom.xml中安装lombok的maven依赖
+  - 使用：详见 HelloBean 
+  - 文章：https://juejin.cn/post/6930627377101979662#heading-9
 
+SpringBoot的一些底层注解
+- @Configuration + @Bean + @Autowired
+- lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString
 ```

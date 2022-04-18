@@ -2,6 +2,7 @@ package com.example.lingjing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 // 1
 // 问题：如何运行整个程序？
@@ -22,7 +23,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+
+        // 1. 返回 IOC 容器
+        // 2. IOC的作用是：控制反转 和 依赖注入
+        ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+
+        // 3. 查看容器里的组件
+        String[] beanDefinitionNames = run.getBeanDefinitionNames();
+        for (String name : beanDefinitionNames) {
+            System.out.println(name);
+        }
     }
 
 }
