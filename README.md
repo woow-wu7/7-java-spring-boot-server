@@ -50,4 +50,14 @@ SpringBoot的一些底层注解
 - @Configuration + @Bean + @Autowired + @Builder
 - @Import + @Component + @Bean
 - lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString + @Value +  @Builder + @Slf4j
+
+静态资源访问
+- 静态资源目录：在 src/main/resrouces 文件夹下的 ( static ) ( public ) ( resources ) ( META-INF/resources ) 四个文件夹都可以
+- 如何访问：通过 `服务地址/静态资源名称` 来访问
+- 原理：
+  - 结果描述：( 动态资源，比如一个controller的地址是 /a.jpg )，而静态资源文件夹中也有 ( a.jpg )，此时命中的是 controller，而不是静态资源
+  - 原因：静态资料匹配 `/**`，也就是说如果 controller 不能处理的情况，才会交给静态资源处理器，都找不到则404
+  - 文章：https://juejin.cn/post/6932097247735709709
+- 静态资源反问前缀
+  - 设置：在 application.yaml 中通过 `spring.mvc.static-path-pattern=/resources/**` 来设置前缀 resoruce
 ```
