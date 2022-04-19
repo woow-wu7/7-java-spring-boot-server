@@ -60,4 +60,21 @@ SpringBoot的一些底层注解
   - 文章：https://juejin.cn/post/6932097247735709709
 - 静态资源反问前缀
   - 设置：在 application.yaml 中通过 `spring.mvc.static-path-pattern=/resources/**` 来设置前缀 resoruce
+  
+数据库相关 ( 分四步 )
+- 第一步：pom.xml中安装相关maven
+  - spring-boot-starter-jdbc
+    - 该场景启动器的主要作用：具有 ( 事务，jdbc，数据源 )
+    - 不包含：数据库驱动，因为SpringBoot并不知道我们使用什么数据库，所以需要安装数据库驱动，比如 mysql数据库驱动
+  - mysql-connector-java
+    - mysql数据库驱动
+    - 版本需要和你安装的mysql版本保持一致，即驱动版本和数据库版本要一致
+  - mybatis-spring-boot-starter
+    - mybatis 操作数据库 
+    - mybatis有两种用法：1. 纯注解的方式 2.xml配置的方式
+- 第二步：在 application.yaml 中做数据库相关的配置
+- 第三步：docker安装mysql
+  - 文章：https://juejin.cn/post/6892390655126241287#heading-12
+- 第四步：mybatis 访问数据库，并操作数据
+  - 文章：https://juejin.cn/post/6929145638898794503/#heading-22
 ```
