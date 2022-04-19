@@ -1,6 +1,7 @@
 # SpringBoot
 
 ### (1) 相关知识点
+
 ```相关知识点
 
 项目初始化
@@ -80,4 +81,12 @@ SpringBoot的一些底层注解
 - 第四步：mybatis 访问数据库，并操作数据
   - (安装和配置)文章：https://juejin.cn/post/6929145638898794503/#heading-22
   - idea插件：MyBatisX，可以在 xml 和 类方法 两者中做跳转
+  
+Swagger
+- 作用：自动生成 ( 接口文档 ) 及 ( 自测工具 )，注解以 ( @Api开头 )
+- 文章：https://juejin.cn/post/6934274450514771982#heading-3
+- 注意：Swagger2 3.0 只需要 ( springfox-boot-starter ) 就可以了 
+- 报错--：安装配置好 swagger2 3.0 后报错：Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+- 解决--：在主程序类上添加 @EnableWebMvc 注解
+- 访问--：本地服务地址或者远程服务器地址/swagger-ui/index.html
 ```

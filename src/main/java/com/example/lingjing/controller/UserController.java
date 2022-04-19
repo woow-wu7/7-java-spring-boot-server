@@ -2,6 +2,8 @@ package com.example.lingjing.controller;
 
 import com.example.lingjing.bean.UserBean;
 import com.example.lingjing.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +22,10 @@ public class UserController {
 
     // 查
     @GetMapping("/select-user")
+    @ApiOperation(value = "获取用户信息")
     public UserBean getUser(
-            @RequestParam(name = "id", required = false) Integer id
+            @RequestParam(name = "id", required = false)
+            @ApiParam(name = "id", value = "用户的id") Integer id
     ) {
         log.info("id:{}", id);
         return userService.getUser(id);
@@ -30,6 +34,10 @@ public class UserController {
     // 增
     // 使用 postman 进行测试
     @PostMapping("/insert-user")
+    // @ApiOperation(value = "添加用户信息")
+    // @ApiImplicitParams({
+    //   @ApiImplicitParam(name = "body", value = "用户信息", dataType = "Object", paramType = "body"),
+    // })
     public Integer addUser(
             @RequestBody Map<String, Object> body
     ) {

@@ -3,6 +3,7 @@ package com.example.lingjing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 // 1
 // 问题：如何运行整个程序？
@@ -18,8 +19,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 // 3
 // @SpringBootApplication
 // - 表示是一个 SpringBoot 应用
-// - 主程序类，项目的入口
+// - 主程序类，启动类，项目的入口
 @SpringBootApplication(scanBasePackages = "com.example.lingjing")
+@EnableWebMvc
 public class Application {
 
     public static void main(String[] args) {
