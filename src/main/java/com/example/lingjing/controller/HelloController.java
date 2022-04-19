@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 // @RestController = @Controller + @ResponseBody
 @Slf4j
 @RestController
@@ -25,7 +27,7 @@ public class HelloController {
     // @GetMapping(path = "/hello")
     @GetMapping("/hello")
     public HelloBean getHello() {
-        HelloBean res = hello2.builder().name("woow_wu7").age(100).build();
+        HelloBean res = hello2.builder().name("woow_wu7").age(100).birthday(new Date()).build();
         log.info("HelloController return value -> {}", res);
         return res;
     }

@@ -1,7 +1,10 @@
 package com.example.lingjing.bean;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Date;
 
 // @Data
 // - 是lombok的注解
@@ -26,8 +29,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString // 以上都是 lombok的注解
+@JsonPropertyOrder(value = {"age", "name"}) // jackson 保证age属性在name属性前面
 public class HelloBean {
+    @JsonIgnore // jackson 返回前端该属性时，忽略该属性
     public String name;
+
     public Integer age;
+
+    @JsonFormat(pattern = "YYYY-MM-DD HH-dd-ss", timezone = "GMT+8") // jackson 格式化
+    @JsonProperty(value = "birthdayChanged") // jackson 修改返回前端的属性名 birthday -> birthdayChanged
+    public Date birthday;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL) // jackson的注解，如果是null，则不返回该字段
+    public Nulls isNull;
 }

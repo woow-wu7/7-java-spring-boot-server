@@ -89,4 +89,19 @@ Swagger
 - 报错--：安装配置好 swagger2 3.0 后报错：Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
 - 解决--：在主程序类上添加 @EnableWebMvc 注解
 - 访问--：本地服务地址或者远程服务器地址/swagger-ui/index.html
+
+jackson
+- spring-boot-starter-web 场景启动器中已经包含了 jackson
+- 如果不使用 spring-boot-starter-web 则自己安装 spring-boot-starter-json
+- 文章：https://juejin.cn/post/6935081135114289188#heading-14
+```
+
+### (2) 快捷键
+
+```快捷键
+格式化 -------------------------- command + option + L
+参数提示 ------------------------ command + p
+打印 --------------------------- sout
+删除没有使用到的引入的文件或依赖 ---- control + options + o
+Build Project ----------------- command + F9
 ```

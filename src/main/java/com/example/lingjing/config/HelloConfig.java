@@ -4,6 +4,8 @@ import com.example.lingjing.bean.HelloBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Date;
+
 // 1
 // @Configuration
 // - 作用：告诉SpringBoot这是一个 ( 配置类 ) === xml配置文件
@@ -25,6 +27,6 @@ public class HelloConfig { // HelloConfig 本身也是组件
 
     @Bean("hello2")
     public HelloBean hello1() {
-        return new HelloBean("woow_wu7", 20);
+        return new HelloBean("woow_wu7", 20, new Date(), null);
     }
 }
