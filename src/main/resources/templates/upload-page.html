@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--注意：xmls:th 的值-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>上传页面</div>
+<!-- th:action="@{/upload}" 提交的controller对应的path，所以还要写upload的controller -->
+<!-- enctype="multipart/form-data" -->
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+    <div>
+        <span>单头像上传</span>
+        <input type="file" name="single">
+        <!-- 注意：这里的 name=single 需要和 controller中的 @RequestPart("single") 一一对应 -->
+    </div>
+
+    <div>
+        <span>多头像上传</span>
+        <!-- multiple表示开启多个上传 -->
+        <input type="file" name="multiple" multiple>
+    </div>
+    <button type="submit">上传</button>
+</form>
+</body>
+</html>

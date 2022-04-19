@@ -104,6 +104,24 @@ jackson
        - 重写 afterCompletion 方法
   - 2. implements 实现一个 WebMvcConfigurer 配置类
        - 重写 addInterceptors 方法，在里面添加拦截规则，即 ( 拦截 和 放行 ) 的路径即可
+
+上传文件       
+- maven依赖：spring-boot-starter-thymeleaf 返回一个HMTL - web相关
+- 文章：https://juejin.cn/post/6932097247735709709#heading-18
+- 流程
+  - 1. controller的注解：必须是@Controller，而不能是@RestController，因为要返回html
+  - 2. controller需要一个 ( 获取上传页面的path ) 和 ( 上传文件的path )
+  - 3. 上传文件的参数注解： @RequestPart
+  - 4. 上传的文件参数类型： MultipartFile
+  - 5. ( html中的input的name属性 - name="single" ) 需要和 (  @RequestPart("single")的参数名 ) 一致，比如都是 single
+  - 6. html 放在 src/main/resources/templates 中
+- 扩展
+  - 问题：如果一个controller，一些页面要返回html，一些又要返回return的内容，怎么办？
+  - 等价：如果整个 controller 的注解是 ( @Controller - 返回html )，但是某些方法要 ( 返回数据 ) 怎么办？
+  - 回答：
+    - @ResponseBody 用在单独的方法上即可返回数据，而不是html
+    - 需要用 @Controller注解controller返回html，然后在要返回的return的方法上加上 ( @ResponseBody ) 来返回return后面的内容
+
 ``` 
 
 ### (2) 快捷键
@@ -114,4 +132,5 @@ jackson
 打印 --------------------------- sout
 删除没有使用到的引入的文件或依赖 ---- control + options + o
 Build Project ----------------- command + F9
+报错时-更多选项 ----------------- optiion + enter
 ```

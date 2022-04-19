@@ -104,6 +104,13 @@
             <version>3.0.0</version>
         </dependency>
 
+        <!-- spring-boot-starter-thymeleaf -->
+        <!-- 主要用于显示resources/templates中的html，即返回一个html -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!-- 编译 -->
