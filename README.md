@@ -94,7 +94,17 @@ jackson
 - spring-boot-starter-web 场景启动器中已经包含了 jackson
 - 如果不使用 spring-boot-starter-web 则自己安装 spring-boot-starter-json
 - 文章：https://juejin.cn/post/6935081135114289188#heading-14
-```
+- 对比：fastjson + gson + jackson
+
+拦截器 Interceptor
+- 步骤
+  - 1. implements 实现一个 HandlerInterceptor 拦截类
+       - 重写 preHandle 方法
+       - 重写 postHandle 方法
+       - 重写 afterCompletion 方法
+  - 2. implements 实现一个 WebMvcConfigurer 配置类
+       - 重写 addInterceptors 方法，在里面添加拦截规则，即 ( 拦截 和 放行 ) 的路径即可
+``` 
 
 ### (2) 快捷键
 
