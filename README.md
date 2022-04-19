@@ -41,6 +41,8 @@ pom.xml
   - 文章：
     - https://juejin.cn/post/6930627377101979662#heading-9
     - https://juejin.cn/post/6960187616050282533#heading-21
+- MyBatisX
+  - mybatis的xml文件和mapper类方法间的跳转
 - devtools
   - 实现重新构建
   - 快捷键：command + f9 则可以重新构建，不需要在重新run
@@ -76,5 +78,6 @@ SpringBoot的一些底层注解
 - 第三步：docker安装mysql
   - 文章：https://juejin.cn/post/6892390655126241287#heading-12
 - 第四步：mybatis 访问数据库，并操作数据
-  - 文章：https://juejin.cn/post/6929145638898794503/#heading-22
+  - (安装和配置)文章：https://juejin.cn/post/6929145638898794503/#heading-22
+  - idea插件：MyBatisX，可以在 xml 和 类方法 两者中做跳转
 ```

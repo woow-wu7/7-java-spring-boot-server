@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 是 ( mapper类 ) 的全路径，注意分隔符是.而不是/ -->
+<mapper namespace="com.example.lingjing.mapper.UserMapper">
+    <!-- id 是方法名 -->
+    <!-- resultType 是返回值类型，即Bean对象的文件路径 -->
+    <!-- parameterType 是参数类型 -->
+
+    <!-- 1. ( resultType ) 是方法的 ( 返回值 ) 类型，通过 copy path => copy reference 可以快速生成 -->
+    <!-- 2. ( parameterType ) ( 参数 ) 类型-->
+    <!-- 3. resultType  只用于 select -->
+    <!-- 4. parameterType 用于 insert delete update-->
+
+    <!--注意：resultType是bean对象时，要写bean对象的全路径-->
+    <!--注意：resultType当查找的数据库返回的是一个List<Map>时，不能写List，而是Map，其他类型类似-->
+
+    <!-- 查 -->
+    <select id="getUser" resultType="com.example.lingjing.bean.UserBean">
+        select * from user where id=#{id}
+    </select>
+
+    <!-- 增 -->
+    <insert id="addUser" parameterType="Map">
+        insert into user
+        (name, age, address)
+        values
+        (#{name}, #{age}, #{address})
+    </insert>
+
+    <!-- 删 -->
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id = #{id}
+    </delete>
+
+    <!-- 改 -->
+    <update id="editUser" parameterType="Map">
+        update user
+        set name=#{name}, age=#{age}, address=#{address}
+        where id=#{id}
+    </update>
+</mapper>
