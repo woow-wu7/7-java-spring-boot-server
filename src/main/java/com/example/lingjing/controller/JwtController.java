@@ -18,8 +18,6 @@ import java.util.HashMap;
 @Slf4j
 public class JwtController {
 
-
-
     // 1
     // jwt 直接测试
     @GetMapping("/jwt")

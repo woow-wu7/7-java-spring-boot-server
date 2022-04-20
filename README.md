@@ -183,6 +183,27 @@ JWT
     - 在 JwtController 中
   - 封装Jwt工具函数
     - 在 src/main/java/com.example.lingjing/utils/JwtUtil 中
+
+- MybatisPlus
+  - 安装和配置
+    - 1. 安装maven依赖
+      - mybatis-plus-boot-starter
+    - 2. 配置 @MapperScane()
+      - 作用是指定要自动扫描的mapper目录，就不用在每个类上都添加上 @Mapper 了
+      - 这里不还是喜欢在每个类上都加，所以直接忽略第2步
+    - 3. Mapper
+      - 编写一个 ( extends ) 继承 ( BaseMapper<bean对象> ) 类的 mapper 接口，在bean对象上通过 ( @TableName() ) 指定需要查询的数据库表名
+    - 4. 
+  - 类名和表名
+    - 1. 默认情况下 ( 实体类名 ) 需要和 ( 数据库表名 ) 保持一致
+    - 2. 但是可以通过 ( @TableName() ) 来指定 ( 要查询的数据库表名 )
+  - 详细
+    - 官网：https://baomidou.com/
+    - 文章：https://juejin.cn/post/6962752749993721892#heading-12
+    - 详见：
+      - Application -> ( @MapperScane )
+      - UserPlusBean -> ( @TableName + @TableField )
+      - UserPlusTest -> ( mapper -> selectById )
 ``` 
 
 ### (2) 快捷键

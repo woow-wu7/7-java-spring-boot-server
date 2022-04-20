@@ -1,5 +1,6 @@
 package com.example.lingjing;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,8 +21,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 // @SpringBootApplication
 // - 表示是一个 SpringBoot 应用
 // - 主程序类，启动类，项目的入口
+
+// 4
+// @MapperScan
+// - mybatis-plus 的注解
+// - 指定mapper的目录，将自动扫描，则不用在每个类上都加@Mapper
 @SpringBootApplication(scanBasePackages = "com.example.lingjing")
 @EnableWebMvc
+@MapperScan("com.example.lingjing.mapper")
 public class Application {
 
     public static void main(String[] args) {
