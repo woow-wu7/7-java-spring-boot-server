@@ -3,10 +3,11 @@ package com.example.lingjing.controller;
 import com.example.lingjing.bean.HelloBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 // @RestController = @Controller + @ResponseBody
 @Slf4j
@@ -43,4 +44,29 @@ public class HelloController {
     public HelloBean getHelloConfigurationProperties() {
         return helloBean;
     }
+
+    // 4
+    // 测试：@PathVariable + @RequestHeader
+    @GetMapping("/hello-params/{id}/{name}")
+    public HashMap getHelloConfigurationProperties(
+            @PathVariable("id") Integer id,
+            @PathVariable("name") String name,
+            @PathVariable Map<String, String> pathVariables, // 注意Map的类型必须是String，map获取所有path变量
+
+            @RequestHeader("User-Agent") String userAgent, // 一个header
+            @RequestHeader Map<String, String> headers // 所有header，map同样只能是String
+
+            // @CookieValue("_ga") String cookieGa // 获取cookie
+    ) {
+        log.info("id:{}, name:{}, pathVariables:{},userAgent:{}，headers:{}", id, name, pathVariables, userAgent, headers);
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("id", id);
+        objectObjectHashMap.put("name", name);
+        objectObjectHashMap.put("pathVariables", pathVariables);
+        objectObjectHashMap.put("userAgent", userAgent);
+        objectObjectHashMap.put("headers", headers);
+        // objectObjectHashMap.put("cookieGa", cookieGa);
+        return objectObjectHashMap;
+    }
+
 }

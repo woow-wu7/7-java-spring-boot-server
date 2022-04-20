@@ -53,7 +53,13 @@ SpringBoot常用注解
 - @Configuration + @Bean + @Autowired + @Builder
 - @ConfigurationProperties + @Compoennt + ( @EnableConfiguraionProperties )
 - @Import + @Component + @Bean
+- controller相关
+  - @GetMapping + @PostMapping ...
+  - @RequestParam + @ReqeustBody + @RequestPart + @RequestHeader + @RequestAttribute`
+  - @PathVariable + @CookieValue
+  - @ResponseBody 详见 UploadController 3 的注释
 - lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString + @Value +  @Builder + @Slf4j
+
 
 静态资源访问
 - 静态资源目录：在 src/main/resrouces 文件夹下的 ( static ) ( public ) ( resources ) ( META-INF/resources ) 四个文件夹都可以
@@ -137,5 +143,5 @@ jackson
 打印 --------------------------- sout
 删除没有使用到的引入的文件或依赖 ---- control + options + o
 Build Project ----------------- command + F9
-报错时-更多选项 ----------------- optiion + enter
+报错时-更多选项 + 自动生成变量 ---- optiion + enter
 ```
