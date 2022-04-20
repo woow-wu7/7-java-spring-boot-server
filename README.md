@@ -58,6 +58,11 @@ SpringBoot常用注解
   - @RequestParam + @ReqeustBody + @RequestPart + @RequestHeader + @RequestAttribute`
   - @PathVariable + @CookieValue
   - @ResponseBody 详见 UploadController 3 的注释
+- 测试相关
+  - @SpringBootTest
+  - @Test + @RepeatedTest + @DisplayName + @Disabled + @Timeout
+  - @BeforeEach + @AfterEach + @BeforeAll + @AfterAll
+  - SpringBoot中的单元测试是可以使用SpringBoot的能力的，比如：使用 @Autowired 自动注入bean
 - lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString + @Value +  @Builder + @Slf4j
 
 
@@ -133,6 +138,11 @@ jackson
   - 1. ( @ConfigurationProperties + @Component -- 作用于Bean对象 ) + ( application.properties中设置属性值 )
   - 2. ( @EnableConfigurationProperties(HelloBean.class) -- 作用于 配置类 ) 只能用在 ( 配置类中 )，即通过 @Configuration 注解修饰的类
   - 案例：查看 HelloBean 和 HelloConfig
+  
+单元测是
+- JUnit5官网：https://junit.org/junit5/docs/current/user-guide/
+- 注解：@SpringBootTest
+- 详见：src/test/AllTest 类
 ``` 
 
 ### (2) 快捷键
