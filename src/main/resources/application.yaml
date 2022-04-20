@@ -40,3 +40,8 @@ mybatis:
     # configuration
     # - 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
     map-underscore-to-camel-case: true
+
+hello:
+  # 自定义的配置参数，这里主要用来验证 @ConfigurationProperties 注解的使用
+  # 具体查看：HelloController 的 3 注释
+  age: 23456789

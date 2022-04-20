@@ -49,8 +49,9 @@ pom.xml
   - 快捷键：command + f9 则可以重新构建，不需要在重新run
   - 要实现真正的热更新：https://juejin.cn/post/6960187616050282533#heading-25
 
-SpringBoot的一些底层注解
+SpringBoot常用注解
 - @Configuration + @Bean + @Autowired + @Builder
+- @ConfigurationProperties + @Compoennt + ( @EnableConfiguraionProperties )
 - @Import + @Component + @Bean
 - lombock => @Data + @AllArgsConstructor + @NoArgsConstructor + @ToString + @Value +  @Builder + @Slf4j
 
@@ -122,6 +123,10 @@ jackson
     - @ResponseBody 用在单独的方法上即可返回数据，而不是html
     - 需要用 @Controller注解controller返回html，然后在要返回的return的方法上加上 ( @ResponseBody ) 来返回return后面的内容
 
+配置绑定
+  - 1. ( @ConfigurationProperties + @Component -- 作用于Bean对象 ) + ( application.properties中设置属性值 )
+  - 2. ( @EnableConfigurationProperties(HelloBean.class) -- 作用于 配置类 ) 只能用在 ( 配置类中 )，即通过 @Configuration 注解修饰的类
+  - 案例：查看 HelloBean 和 HelloConfig
 ``` 
 
 ### (2) 快捷键

@@ -22,6 +22,13 @@ import java.util.Date;
 // 3
 // 文章：https://juejin.cn/post/6960187616050282533#heading-22
 
+// 4
+// @EnableConfigurationProperties(HelloBean.class)
+// 作用
+// - a.开启HelloBean的配置绑定功能
+// - b.将HelloBean自动注册到容器中
+
+//@EnableConfigurationProperties(HelloBean.class)
 @Configuration
 public class HelloConfig { // HelloConfig 本身也是组件
 

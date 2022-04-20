@@ -11,10 +11,17 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
+// 1
 // 1. @RestController = @Controller + @ResponseBody
 // 2.
 // 问题：如果一个controller，一些页面要返回html，一些又要返回return的内容，怎么办？
 // 回答：需要用 @Controller注解controller返回html，然后在要返回的return的方法上加上 ( @ResponseBody ) 来返回return后面的内容
+
+// 2
+// 注意区分
+// - @RequestParam
+// - @RequestBody
+// - @RequestPart
 
 @Controller // 注意：这里要返回 html，所以不用 @RestController
 @Slf4j

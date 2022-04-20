@@ -21,6 +21,10 @@ public class UserController {
     UserService userService;
 
     // 查
+    // 注意区分
+    // - @RequestParam
+    // - @RequestBody
+    // - @RequestPart
     @GetMapping("/select-user")
     @ApiOperation(value = "获取用户信息")
     public UserBean getUser(
