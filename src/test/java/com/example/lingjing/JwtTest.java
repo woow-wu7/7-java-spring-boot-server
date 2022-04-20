@@ -52,5 +52,5 @@ public class JwtTest {
 
 
     // 3
-    // 装的JWT - 在 src/main/java/com.example.lingjing/utils/JwtUtil 中
+    // 封装的JWT - 在 src/main/java/com.example.lingjing/utils/JwtUtil 中
 }

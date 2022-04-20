@@ -194,4 +194,7 @@ JWT
 删除没有使用到的引入的文件或依赖 ---- control + options + o
 Build Project ----------------- command + F9
 报错时-更多选项 + 自动生成变量 ---- optiion + enter
+
+全局查找 ------------------------ command + shift + r
+文件间跳转 ---------------------- command + e
 ```
