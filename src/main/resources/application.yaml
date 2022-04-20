@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 
 ## (1)
 ## application.yml 和 application.properties 的区别

@@ -154,7 +154,30 @@ jackson
   - 2. 命令行方式：在打包后，通过命令行来指定
     - java -jar -Dspring.profiles.active=prod target/7-react-admin-java-0.0.1-SNAPSHOT.jar
       - `-Dspring.profiles.active=prod 指定配置文件是 application-prod.yml`
-      - `target/7-react-admin-java-0.0.1-SNAPSHOT.jar 指定 java 包`
+      - 或者 `--spring.profiles.active=prod`
+
+classpath
+- 1. 代表的是 src/main/java
+- 2. 代表的是 src/main/resources
+- 比如：在 application.yml中的 mybatis 的设置 `mapper-locations: classpath:mapper/*.xml`
+
+JWT
+- SESSION
+  - 案例：详见 SesstionController
+  - session的具体认证流程
+    - 1.用户提交用户名，密码到服务器
+    - 2.服务器认证通过后，在 session 中保存相关数据，比如用户名，角色，登陆时间，等
+    - 3.服务器向客户端返回一个 session_id，并写入 cookie
+    - 4.客户端以后的每一次请求，都会携带 cookie，即将 session_id 传回服务器
+    - 5.服务器收到 session_id，找到之前保存的数据，由此得知用户的身份
+  - 参数类型
+    - 设置session：-----> HttpSession -> session.setAttribute("name", value)
+    - 获取session：-----> HttpServletRequest -> request.getSesion() -> sesstion.getAttribute("name")
+- JWT
+  - JWT：是 json web token 的缩写，( token可以放在cookie或localStorage中，请求是一般放在header中 )
+  - 组成：( header头部.payload负载.signature签名 )
+  - 文章：https://juejin.cn/post/6970598940479586334#heading-9
+  - maven依赖：java-jwt
 ``` 
 
 ### (2) 快捷键
