@@ -174,10 +174,15 @@ JWT
     - 设置session：-----> HttpSession -> session.setAttribute("name", value)
     - 获取session：-----> HttpServletRequest -> request.getSesion() -> sesstion.getAttribute("name")
 - JWT
+  - maven依赖：java-jwt
   - JWT：是 json web token 的缩写，( token可以放在cookie或localStorage中，请求是一般放在header中 )
   - 组成：( header头部.payload负载.signature签名 )
   - 文章：https://juejin.cn/post/6970598940479586334#heading-9
-  - maven依赖：java-jwt
+  - 详细：
+    - 在 JwtTest 中
+    - 在 JwtController 中
+  - 封装Jwt工具函数
+    - 在 src/main/java/com.example.lingjing/utils/JwtUtil 中
 ``` 
 
 ### (2) 快捷键
