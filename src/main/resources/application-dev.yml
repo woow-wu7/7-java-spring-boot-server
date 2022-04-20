@@ -1,0 +1,47 @@
+# (1)
+# application.yml 和 application.properties 的区别
+# 1. 程序会先读取 .yml 再读取 .properties
+# 2. 配置相同：.properties 会覆盖 .yml 的配置
+# 3. 配置不同：两个都会生效
+# 4. 结论：从优先级来说 application.properties > application.yml
+# 问题：这里 port=7776，在 application.properties 中设置的 port=7777 到底谁会生效呢？
+# 答案：7777生效
+
+server:
+  port: 8888
+
+spring:
+  mvc:
+    # 静态资源路径访问前缀 resource
+    # 访问：服务器地址/resource/静态资源名
+    static-path-pattern: /resource/**
+
+  datasource:
+    # datasource
+    # 1. 只要装了 ( mysql驱动 ) 和 ( jdbc数据库连接池 )，并且在这里配置好 ( 数据库连接池相关的配置项 ) 就能连接数据库
+    # 2. mysql驱动 => mysql-connector-java
+    # 3. jdbc连接池 => spring-boot-starter-jdbc ( 包含 事务 + jdbc + 数据源 )
+    # 4. 更进一步：还可以使用 ( Druid数据源 + MyBatis )
+    # 5. url的格式：jdbc:mysql://数据库地址:数据库端口号/数据库名?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://120.53.220.141:3300/mysql_c1?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    dirver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  # 配置 mybatis 规则
+  # 默认的前置路径就是 resources 文件夹中
+  # config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件 ( 注意：如果有下面的 configuration 就要注释掉 config-location )
+  mapper-locations: classpath:mapper/*.xml
+  # mapper-locations
+  # - mybatis的sql映射文件，注意是 mapper-locations，有s
+  # - 默认的路径前缀是 src/main/resources
+  configuration:
+    # configuration
+    # - 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
+    map-underscore-to-camel-case: true
+
+hello:
+  # 自定义的配置参数，这里主要用来验证 @ConfigurationProperties 注解的使用
+  # 具体查看：HelloController 的 3 注释
+  age: 23456789

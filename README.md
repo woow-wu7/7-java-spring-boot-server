@@ -143,6 +143,18 @@ jackson
 - JUnit5官网：https://junit.org/junit5/docs/current/user-guide/
 - 注解：@SpringBootTest
 - 详见：src/test/AllTest 类
+
+指定不同环境的配置文件
+- 文件
+  - application.yml -> 通过 pring.profiles.active 来指定需要加载的配置i文件
+  - application-dev.yml
+  - application-prod.yml
+- 指定方式
+  - 1. 配置文件方式：在 aplication.yml 中通过 ( spring.profiles.active = prod ) 来指定配置文件是 ( application-prod.yml )
+  - 2. 命令行方式：在打包后，通过命令行来指定
+    - java -jar -Dspring.profiles.active=prod target/7-react-admin-java-0.0.1-SNAPSHOT.jar
+      - `-Dspring.profiles.active=prod 指定配置文件是 application-prod.yml`
+      - `target/7-react-admin-java-0.0.1-SNAPSHOT.jar 指定 java 包`
 ``` 
 
 ### (2) 快捷键
