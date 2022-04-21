@@ -14,7 +14,25 @@
 - 打包 fat-jar
 - 打包后的文件：在 target 文件夹中可以找到 jar 包
 - 打jar包需要的插件和pom.xml设置：https://juejin.cn/post/6927306093970325517/#heading-13
-- 部署相关命令(全)：https://juejin.cn/post/6930627377101979662#heading-11
+- 部署相关命令(全)：
+  - https://juejin.cn/post/6930627377101979662#heading-11
+  - https://juejin.cn/post/6962752749993721892#heading-28
+- 详细过程
+  - 1. 进入 .jar 包所在文件夹
+  - 2. 打包：
+     - 1. 插件打包：在idea插件 maven 中选择 ( clean + package )，然后 ( run maven build )，打包完成后，在 ( target 会多出来 .jar 包 )
+     - 2. 命令打包：在项目根目录执行 ( mvn -Dmaven.test.skip -U clean package )
+     - 3. 两者打包都需要插件支持：Spring-boot-maven-plugin
+  - 3. 部署
+     - 1. 退出终止服务：java -jar -Dspring.profiles.active=dev xxxx.jar
+     - 2. 退出不会终止(后台运行)，关闭窗口才终止：java -jar -Dspring.profiles.active=dev xxx.jar &
+     - 3. 持久化 
+         - 关闭窗口也仍然运行： nohup java -jar -Dspring.profiles.active=prod xxx.jar > temp.txt 2>&1 &
+         - 终止服务： kill + 进程号
+  - 4. 扩展 - 相关命令
+    - -D --------------------- 表示指定参数
+    - & ---------------------- 表示后台运行
+    - ps -ef | grep java ----- 查看进程号
 
 包结构
   - 注意：SpringBoot项目中，所有的包都必须是 ( 主程序所在的包 ) 的 ( 同级 或者 子级 ) 才会生效
@@ -204,6 +222,9 @@ JWT
     - 注意 lombok 的 builder 的使用
     - builder() 方法是有返回值的，返回值才是修改后的对象，原bean对象不会改变
     - UserPlusBean build = userPlusBean1.builder()...build() ===> build改变，userPlusBean1不变
+  - 开启日志
+    - 在 pom.xml 中设置
+    - mybatis-plus.configuration.log-imp = org.apache.ibatis.logging.stdout.StdOutImpl
   - 详细
     - 官网：https://baomidou.com/
     - 文章：https://juejin.cn/post/6962752749993721892#heading-12
