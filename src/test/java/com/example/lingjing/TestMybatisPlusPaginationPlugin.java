@@ -20,8 +20,14 @@ public class TestMybatisPlusPaginationPlugin {
 
     @Test
     public void testPaginationPlugin() {
-        Page<UserMybatisPlusBean> objectPage = new Page<>(1, 2); // page对象 current，size
 
+        // page对象
+        // - 由 mybatis-plus 提供
+        // - current，size
+        Page<UserMybatisPlusBean> objectPage = new Page<>(1, 2);
+
+        // selectPage
+        // - 是 mybatis-plus mapper 提供的能力
         userMybatisPlusMapper.selectPage(objectPage, null);
 
         log.info(" objectPage.getRecords() => {}", objectPage.getRecords()); // ----- 查到的数据

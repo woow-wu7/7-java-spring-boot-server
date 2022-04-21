@@ -32,13 +32,21 @@ mybatis:
   # 配置 mybatis 规则
   # 默认的前置路径就是 resources 文件夹中
   # config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件 ( 注意：如果有下面的 configuration 就要注释掉 config-location )
-  mapper-locations: classpath:mapper/*.xml
+
+  # 1
   # mapper-locations
   # - mybatis的sql映射文件，注意是 mapper-locations，有s
   # - 默认的路径前缀是 src/main/resources
+  # 2
+  # classpath
+  # - 1. 代表的是 src/main/java
+  # - 2. 代表的是 src/main/resources
+  # 这里指定了mapper的xml配置查询文件的位置，在 ( mapper类 和 mapper的xml文件 ) 是一一对应的
+  mapper-locations: classpath:mapper/*.xml
+
+  # configuration
+  # - 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
   configuration:
-    # configuration
-    # - 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
     map-underscore-to-camel-case: true
 
 # 日志
