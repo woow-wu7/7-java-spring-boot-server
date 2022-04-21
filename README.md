@@ -205,8 +205,9 @@ JWT
     - 文章：https://juejin.cn/post/6962752749993721892#heading-12
     - 详见：
       - Application -> ( @MapperScane )
-      - UserPlusBean -> ( @TableName + @TableField )
-      - UserPlusTest -> ( mapper -> selectById +  insert )
+      - UserMybatisPlusBean -> ( @TableName + @TableField )
+      - UserMybatisPlusMapper -> ( public interface UserMybatisPlusMapper extends BaseMapper<UserMybatisPlusBean> )
+      - UserMybatisPlusTest -> ( mapper -> selectById  + updateById + deleteById + insert )
 ``` 
 
 ### (2) 快捷键
@@ -221,4 +222,5 @@ Build Project ----------------- command + F9
 
 全局查找 ------------------------ command + shift + r
 文件间跳转 ---------------------- command + e
+修改文件名 ---------------------- shift + F6
 ```

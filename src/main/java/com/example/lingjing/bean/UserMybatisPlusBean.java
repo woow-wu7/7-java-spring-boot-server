@@ -5,11 +5,23 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+// 1
+// UserPlusBean
+// - 测试 mybatis-plus  mapper
 
+// 2
 // @TableName
 // - @TableName 是 mybatis-plus 的注解
 // - 默认情况下 ( 实体类名 ) 需要和 ( 数据库表名 ) 保持一致
 // - 默认情况下会将驼峰的实体类名通过 _ 下划线链接，即 user_plus_bean
+
+// 3
+// 详见
+// Application -> ( @MapperScane )
+// UserMybatisPlusBean -> ( @TableName + @TableField )
+// UserMybatisPlusMapper -> ( public interface UserMybatisPlusMapper extends BaseMapper<UserMybatisPlusBean> )
+// UserMybatisPlusTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+
 @TableName("user")
 @Data
 @AllArgsConstructor
@@ -17,7 +29,7 @@ import org.springframework.stereotype.Component;
 @ToString
 @Builder
 @Component
-public class UserPlusBean {
+public class UserMybatisPlusBean {
     public String name;
     public Integer age;
     public String address;
