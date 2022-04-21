@@ -197,13 +197,16 @@ JWT
   - 类名和表名
     - 1. 默认情况下 ( 实体类名 ) 需要和 ( 数据库表名 ) 保持一致
     - 2. 但是可以通过 ( @TableName() ) 来指定 ( 要查询的数据库表名 )
+  - 注意 lombok 的 builder 的使用
+    - builder() 方法是有返回值的，返回值才是修改后的对象，原bean对象不会改变
+    - UserPlusBean build = userPlusBean1.builder()...build() ===> build改变，userPlusBean1不变
   - 详细
     - 官网：https://baomidou.com/
     - 文章：https://juejin.cn/post/6962752749993721892#heading-12
     - 详见：
       - Application -> ( @MapperScane )
       - UserPlusBean -> ( @TableName + @TableField )
-      - UserPlusTest -> ( mapper -> selectById )
+      - UserPlusTest -> ( mapper -> selectById +  insert )
 ``` 
 
 ### (2) 快捷键
