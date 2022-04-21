@@ -45,6 +45,7 @@ mybatis:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启mybatis-plus日志
+  type-aliases-package: com.example.lingjing.bean # 设置 ( 类型别名 ) 对应的包
 
 hello:
   # 自定义的配置参数，这里主要用来验证 @ConfigurationProperties 注解的使用

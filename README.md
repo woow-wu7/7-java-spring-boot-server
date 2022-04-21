@@ -241,6 +241,13 @@ JWT
   - 配置和使用
     - 1. 添加一个配置类，详见 MybatisPlusConfig
     - 2. 测试，详见 TestMybatisPlusPaginationPlugin 
+  - 自定义分页分页功能，在 mybatis 中去使用
+    - 1. 在 mapper 中自定义一个 分页方法
+         - 第一个参数第一是mybatis-plus的分页对象
+         - 详见 ( UserMapper )
+    - 2. 和mybatis其他查询一样，在 ( UserPaginationMapper.xml ) 写查询语句即可
+  - 详情
+    - UserMapper + UserPaginationMapper.xml + TestCustomPagination
 ``` 
 
 ### (2) 快捷键
@@ -256,4 +263,5 @@ Build Project ----------------- command + F9
 全局查找 ------------------------ command + shift + r
 文件间跳转 ---------------------- command + e
 修改文件名 ---------------------- shift + F6
+类和方法的注释 ------------------- /**
 ```

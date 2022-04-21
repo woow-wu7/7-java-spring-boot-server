@@ -1,8 +1,10 @@
 package com.example.lingjing.mapper;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.lingjing.bean.UserBean;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -29,4 +31,17 @@ public interface UserMapper {
 
     // 改
     public Integer editUser(Map body);
+
+
+    /**
+     * @desc 通过 用户ID 查询 用户信息
+     * @param page Mybatis-plus 提供的分页对象，必须是第一个参数位置
+     * @param id 表数据 id
+     * @return page
+     */
+    // 重要
+    // 自定义分页
+    public Page<UserBean> selectPageVo(
+            @RequestParam("page") Page<UserBean> page,
+            @RequestParam("id") Integer id);
 }
