@@ -17,10 +17,11 @@ import org.springframework.stereotype.Component;
 
 // 3
 // 详见
-// Application -> ( @MapperScane )
+// Application -> ( @MapperScan )
 // UserMybatisPlusBean -> ( @TableName + @TableField )
 // UserMybatisPlusMapper -> ( public interface UserMybatisPlusMapper extends BaseMapper<UserMybatisPlusBean> )
-// UserMybatisPlusTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+// UserMybatisPlusMapperTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+// UserMybatisPlusServer + UserMybatisPlusServerImpl + UserMybatisPlusServiceTest
 
 @TableName("user")
 @Data

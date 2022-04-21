@@ -191,23 +191,30 @@ JWT
     - 2. 配置 @MapperScane()
       - 作用是指定要自动扫描的mapper目录，就不用在每个类上都添加上 @Mapper 了
       - 这里不还是喜欢在每个类上都加，所以直接忽略第2步
-    - 3. Mapper
-      - 编写一个 ( extends ) 继承 ( BaseMapper<bean对象> ) 类的 mapper 接口，在bean对象上通过 ( @TableName() ) 指定需要查询的数据库表名
-    - 4. 
+    - 3. Mapper ---- BaseMapper<bean>
+      - 编写一个 ( extends ) 继承 ( BaseMapper<bean对象> ) 类的 mapper Interface 接口，在bean对象上通过 ( @TableName() ) 指定需要查询的数据库表名
+    - 4. Service --- IService<bean> + ServiceImple<mapper, bean>
+      - a. 编写一个 ( extends ) 继承 ( IService<bean> ) 类的 server Interface 接口
+      - b. 编写一个实现类，( implements service接口 )，并 ( extends ) 继承 ( ServiceImpl<mapper, bean>)
+    - 5. 
   - 类名和表名
     - 1. 默认情况下 ( 实体类名 ) 需要和 ( 数据库表名 ) 保持一致
     - 2. 但是可以通过 ( @TableName() ) 来指定 ( 要查询的数据库表名 )
-  - 注意 lombok 的 builder 的使用
+  - 扩展：
+    - 注意 lombok 的 builder 的使用
     - builder() 方法是有返回值的，返回值才是修改后的对象，原bean对象不会改变
     - UserPlusBean build = userPlusBean1.builder()...build() ===> build改变，userPlusBean1不变
   - 详细
     - 官网：https://baomidou.com/
     - 文章：https://juejin.cn/post/6962752749993721892#heading-12
     - 详见：
-      - Application -> ( @MapperScane )
+      - Application -> ( @MapperScan )
       - UserMybatisPlusBean -> ( @TableName + @TableField )
       - UserMybatisPlusMapper -> ( public interface UserMybatisPlusMapper extends BaseMapper<UserMybatisPlusBean> )
-      - UserMybatisPlusTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+      - UserMybatisPlusMapperTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+      - UserMybatisPlusServer + UserMybatisPlusServerImpl + UserMybatisPlusServiceTest
+         - 1. UserMybatisPlusServer ( IService<bean> ) -> UserMybatisPlusServerImpl (ServiceImpl<mapper, bean>)
+         - 2. service分两步 ( a.interface extends ) 和 ( b.implements实现类实现接口 + extends )
 ``` 
 
 ### (2) 快捷键

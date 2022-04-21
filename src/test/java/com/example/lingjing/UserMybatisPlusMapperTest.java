@@ -1,5 +1,6 @@
 package com.example.lingjing;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.lingjing.bean.UserMybatisPlusBean;
 import com.example.lingjing.mapper.UserMybatisPlusMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -7,9 +8,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
+
+// 详见
+// Application -> ( @MapperScan )
+// UserMybatisPlusBean -> ( @TableName + @TableField )
+// UserMybatisPlusMapper -> ( public interface UserMybatisPlusMapper extends BaseMapper<UserMybatisPlusBean> )
+// UserMybatisPlusMapperTest -> ( mapper -> selectById  + updateById + deleteById + insert )
+// UserMybatisPlusServer + UserMybatisPlusServerImpl + UserMybatisPlusServiceTest
+
 @SpringBootTest
 @Slf4j
-public class UserMybatisPlusTest {
+public class UserMybatisPlusMapperTest {
 
     @Autowired
     UserMybatisPlusMapper userMybatisPlusMapper;
@@ -17,18 +28,29 @@ public class UserMybatisPlusTest {
 
     // 1
     // mapper 相关测试
-    // - select -> selectById
+    // - select -> selectById + selectList
     // - update -> updateById
     // - delete -> deleteById
     // - insert -> insert
 
 
-    // 查 select
+    // 查 select single
     @Test
     public void mybatisPlusUserSelectTest() {
         UserMybatisPlusBean userPlusBean = userMybatisPlusMapper.selectById(1);
         System.out.println(userPlusBean);
     }
+
+    // 查 select list
+    @Test
+    public void mybatisPlusUserSelectTestList() {
+        QueryWrapper queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", "woow_wu7");
+
+        List list = userMybatisPlusMapper.selectList(null); // null表示查询所有
+        log.info("list => {}", list);
+    }
+
 
     // 增 insert
     @Test
