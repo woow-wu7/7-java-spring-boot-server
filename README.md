@@ -236,6 +236,11 @@ JWT
       - UserMybatisPlusServer + UserMybatisPlusServerImpl + UserMybatisPlusServiceTest
          - 1. UserMybatisPlusServer ( IService<bean> ) -> UserMybatisPlusServerImpl (ServiceImpl<mapper, bean>)
          - 2. service分两步 ( a.interface extends ) 和 ( b.implements实现类实现接口 + extends )
+         
+- MybatisPlus 分页插件
+  - 配置和使用
+    - 1. 添加一个配置类，详见 MybatisPlusConfig
+    - 2. 测试，详见 TestMybatisPlusPaginationPlugin 
 ``` 
 
 ### (2) 快捷键
