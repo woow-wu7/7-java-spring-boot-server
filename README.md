@@ -248,6 +248,13 @@ JWT
     - 2. 和mybatis其他查询一样，在 ( UserPaginationMapper.xml ) 写查询语句即可
   - 详情
     - UserMapper + UserPaginationMapper.xml + TestCustomPagination
+    
+- MybatisPlus 乐观锁插件
+  - 乐观锁 和 悲观锁
+    - 悲观锁：并发操作时，阻塞执行(悲观的认为数据会被其他线程同时修改)，加锁，读和取都会阻塞
+    - 乐观锁：并发操作时，读不阻塞(乐观的认为数据不会被其他线程同时修改，随便读)，不加锁，写会根据版本号version来判断报错或重试
+  - 详情：ProductBean + MyBatisPlusOptimisticLockerConfig + ProductMapper + TestMybatisPlusOptimisticLocker
+  - 链接：https://juejin.cn/post/7089283105470545957#heading-0
 ``` 
 
 ### (2) 快捷键

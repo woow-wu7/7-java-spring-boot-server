@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyBatisPlusPaginationConfig {
 
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+    public MybatisPlusInterceptor myBatisPlusPagination() {
 
         // 1
         // MybatisPlusInterceptor
