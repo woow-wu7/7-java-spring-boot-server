@@ -202,23 +202,22 @@ JWT
   - 封装Jwt工具函数
     - 在 src/main/java/com.example.lingjing/utils/JwtUtil 中
 
-- MybatisPlus
-  - 安装和配置
-    - 1. 安装maven依赖
+MybatisPlus
+- 安装和配置
+  - 1. 安装maven依赖
       - mybatis-plus-boot-starter
-    - 2. 配置 @MapperScane()
+  - 2. 配置 @MapperScane()
       - 作用是指定要自动扫描的mapper目录，就不用在每个类上都添加上 @Mapper 了
       - 这里不还是喜欢在每个类上都加，所以直接忽略第2步
-    - 3. Mapper ---- BaseMapper<bean>
+  - 3. Mapper ---- BaseMapper<bean>
       - 编写一个 ( extends ) 继承 ( BaseMapper<bean对象> ) 类的 mapper Interface 接口，在bean对象上通过 ( @TableName() ) 指定需要查询的数据库表名
-    - 4. Service --- IService<bean> + ServiceImple<mapper, bean>
+  - 4. Service --- IService<bean> + ServiceImple<mapper, bean>
       - a. 编写一个 ( extends ) 继承 ( IService<bean> ) 类的 server Interface 接口
       - b. 编写一个实现类，( implements service接口 )，并 ( extends ) 继承 ( ServiceImpl<mapper, bean>)
-    - 5. 
-  - 类名和表名
+- 类名和表名
     - 1. 默认情况下 ( 实体类名 ) 需要和 ( 数据库表名 ) 保持一致
     - 2. 但是可以通过 ( @TableName() ) 来指定 ( 要查询的数据库表名 )
-  - 扩展：
+ 扩展：
     - 注意 lombok 的 builder 的使用
     - builder() 方法是有返回值的，返回值才是修改后的对象，原bean对象不会改变
     - UserPlusBean build = userPlusBean1.builder()...build() ===> build改变，userPlusBean1不变
@@ -237,7 +236,7 @@ JWT
          - 1. UserMybatisPlusServer ( IService<bean> ) -> UserMybatisPlusServerImpl (ServiceImpl<mapper, bean>)
          - 2. service分两步 ( a.interface extends ) 和 ( b.implements实现类实现接口 + extends )
          
-- MybatisPlus 分页插件
+MybatisPlus 分页插件
   - 配置和使用
     - 1. 添加一个配置类，详见 MybatisPlusConfig
     - 2. 测试，详见 TestMybatisPlusPaginationPlugin 
@@ -249,7 +248,7 @@ JWT
   - 详情
     - UserMapper + UserPaginationMapper.xml + TestCustomPagination
     
-- MybatisPlus 乐观锁插件
+MybatisPlus 乐观锁插件
   - 乐观锁 和 悲观锁
     - 悲观锁：并发操作时，阻塞执行(悲观的认为数据会被其他线程同时修改)，加锁，读和取都会阻塞
     - 乐观锁：并发操作时，读不阻塞(乐观的认为数据不会被其他线程同时修改，随便读)，不加锁，写会根据版本号version来判断报错或重试
